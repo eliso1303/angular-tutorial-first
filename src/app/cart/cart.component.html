@@ -17,9 +17,20 @@
         <label for="name">Name</label>
         <input id="name" type="text" formControlName="name">
     </div>
-    <div>
-        <label for="address">Address</label>
-        <input id="address" type="text" formControlName="address">
+    <div formGroupName="address">
+        <h3>Address</h3>
+        <label for=""> Street:
+            <input type="text" formControlName="street">
+        </label>
+        <label for=""> City:
+            <input type="text" formControlName="city">
+        </label>
+        <label for=""> State:
+            <input type="text" formControlName="state">
+        </label>
+        <label for=""> Zip Code:
+            <input type="text" formControlName="zipCode">
+        </label>
     </div>
     <button class="button" type="submit">Purchase</button>
     <button class="button" type="button" (click)="resetForm()">Reset</button>
@@ -28,5 +39,5 @@
 <div>
     <h3>Customer</h3>
     <p>Name: {{checkedForm.controls.name.value}}</p>
-    <p>Address: {{checkedForm.controls.address.value}}</p>
+    <p>Address: {{checkedForm.controls.address.value | json}}</p>
 </div>

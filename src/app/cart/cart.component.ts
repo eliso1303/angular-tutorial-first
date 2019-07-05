@@ -17,7 +17,12 @@ export class CartComponent implements OnInit {
 
         this.checkedForm = formBuilder.group({
             name: '',
-            address: ''
+            address: formBuilder.group({
+                street:'',
+                city:'',
+                state:'',
+                zipCode:''
+            })
         });
     }
     ngOnInit() { }
