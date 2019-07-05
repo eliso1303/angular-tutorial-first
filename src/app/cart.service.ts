@@ -1,23 +1,31 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
     providedIn: 'root'
 })
 
 export class CartService {
-    constructor(){}
+  static getShippingCosts(): any {
+    throw new Error("Method not implemented.");
+  }
+    constructor(private http: HttpClient) { }
     items = [];
 
     addToCart(product) {
         this.items.push(product);
     }
 
-    getItems(){
+    getItems() {
         return this.items;
     }
 
-    clearCart(){
+    clearCart() {
         this.items = [];
         return this.items;
+    }
+
+    getShippingCosts() {
+        return this.http.get('/assets/shipping.json');
     }
 }
