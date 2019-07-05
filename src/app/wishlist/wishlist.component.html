@@ -1,0 +1,8 @@
+<h2>Your wish list</h2>
+<div class="cart-item" *ngFor="let item of wishlist">
+    <span>{{item.name}}</span>
+    <span>{{item.price | currency}}</span>
+    <button (click)="clearWish(productId)">Delete</button>
+</div>
+
+<button (click)="clearWishlist()">Clear wishes</button>
