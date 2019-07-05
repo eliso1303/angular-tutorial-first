@@ -1,6 +1,6 @@
 import { CartService } from './../cart.service';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators, FormControl } from '@angular/forms';
 
 @Component({
     selector: 'app-cart',
@@ -12,16 +12,16 @@ export class CartComponent implements OnInit {
     items;
     checkedForm;
     constructor(private cartService: CartService,
-                private formBuilder: FormBuilder) {
+        private formBuilder: FormBuilder) {
         this.items = this.cartService.getItems();
 
         this.checkedForm = formBuilder.group({
-            name: ['', Validators.minLength(2)],
+            name: ['', [Validators.minLength(4), this.forbiddenName()]],
             address: formBuilder.group({
-                street:'',
-                city:'',
-                state:'',
-                zipCode:''
+                street: '',
+                city: '',
+                state: '',
+                zipCode: ''
             })
         });
     }
@@ -37,7 +37,7 @@ export class CartComponent implements OnInit {
         this.items = [];
     }
 
-    onSubmit(value){
+    onSubmit(value) {
         console.log(value);
         this.checkedForm.reset();
     }
@@ -46,5 +46,15 @@ export class CartComponent implements OnInit {
         this.checkedForm.patchValue({
             name: 'Elizabeth',
         });
+    }
+
+    forbiddenName() {
+        return (formControl) => {
+            return formControl.value === 'Roman' ? { forbidden: { invalid: true } } : null;
+        }
+    }
+
+    get name() {
+        return this.checkedForm.get('name') as FormControl;
     }
 }
