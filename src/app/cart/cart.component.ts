@@ -27,11 +27,8 @@ export class CartComponent implements OnInit {
     }
     ngOnInit() { }
 
-    clearItem(productId) {
-        // this.items.productId = {};
-        delete this.items.productId;
-        // window.alert(this.items.productId);
-        // this.cartService.deleteFromCart(productId);
+    clearItem(product) {
+        this.cartService.clearItem(product);
     }
     clearCart() {
         this.items = [];

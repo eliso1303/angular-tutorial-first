@@ -25,6 +25,10 @@ export class CartService {
         return this.items;
     }
 
+    clearItem(product) {
+        this.items.splice(this.items.indexOf(product), 1);
+    }
+
     getShippingCosts() {
         return this.http.get('/assets/shipping.json');
     }
