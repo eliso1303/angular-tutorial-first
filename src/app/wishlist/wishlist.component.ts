@@ -18,4 +18,8 @@ export class WishlistComponent implements OnInit {
   clearWishlist() {
     this.wishlist = [];
   }
+
+  clearWish(productId) {
+    this.wishListServise.clearWish(productId);
+  }
 }

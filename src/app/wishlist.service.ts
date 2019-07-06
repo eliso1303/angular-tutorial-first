@@ -12,8 +12,8 @@ export class WishListService {
     constructor(private http: HttpClient) { }
     wishlist = [];
 
-    addToWishList(product) {
-        this.wishlist.push(product);
+    addToWishList(wish) {
+        this.wishlist.push(wish);
     }
 
     getWishList() {
@@ -23,5 +23,9 @@ export class WishListService {
     clearWishList() {
         this.wishlist = [];
         return this.wishlist;
+    }
+
+    clearWish(productId) {
+        this.wishlist.splice(productId, 1);
     }
 }

@@ -7,7 +7,7 @@
 <div class="cart-item" *ngFor="let item of items; index as productId">
     <span>{{item.name}}</span>
     <span>{{item.price | currency}}</span>
-    <button (click)="clearItem(product)">Delete</button>
+    <button (click)="clearItem(productId)">Delete</button>
 </div>
 
 <button (click)="clearCart()">Delete</button>

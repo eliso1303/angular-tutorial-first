@@ -12,8 +12,8 @@ export class CartService {
     constructor(private http: HttpClient) { }
     items = [];
 
-    addToCart(product) {
-        this.items.push(product);
+    addToCart(productId) {
+        this.items.push(productId);
     }
 
     getItems() {
@@ -25,8 +25,8 @@ export class CartService {
         return this.items;
     }
 
-    clearItem(product) {
-        this.items.splice(this.items.indexOf(product), 1);
+    clearItem(productId) {
+        this.items.splice(productId, 1);
     }
 
     getShippingCosts() {
