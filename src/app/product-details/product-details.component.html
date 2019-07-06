@@ -8,4 +8,4 @@
 
 <button (click)="addToCart(product)">Buy</button>
 
-<button (click)="addToWishList(product)">Wish list</button>
+<button *ngIf="!inWishList" (click)="addToWishList(product)">Wish list</button>

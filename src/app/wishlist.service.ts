@@ -12,8 +12,12 @@ export class WishListService {
     constructor(private http: HttpClient) { }
     wishlist = [];
 
-    addToWishList(wish) {
-        this.wishlist.push(wish);
+    addToWishList(wish, inWishList) {
+        if(!this.wishlist.includes(wish)){
+            this.wishlist.push(wish);
+            inWishList = true;
+        }
+        return inWishList;
     }
 
     getWishList() {

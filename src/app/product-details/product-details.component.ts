@@ -12,21 +12,22 @@ import { products } from "./../products";
 
 export class ProductDetailsComponent implements OnInit {
     product;
+    inWishList = false;
 
     constructor(private route: ActivatedRoute, private cartService: CartService, private wishlistService: WishListService) { }
-    ngOnInit() { 
+    ngOnInit() {
         this.route.paramMap.subscribe(params => {
             this.product = products[+params.get('productId')];
         })
     }
 
-    addToCart(product){
+    addToCart(product) {
         window.alert('your product has been added');
         this.cartService.addToCart(product);
     }
 
-    addToWishList(product){
+    addToWishList(product) {
         window.alert('your product has been added to wishlist');
-        this.wishlistService.addToWishList(product);
+        this.inWishList = this.wishlistService.addToWishList(product, this.inWishList);
     }
 }
