@@ -15,6 +15,7 @@ import { WishlistComponent } from './wishlist/wishlist.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UserFormComponent } from './user-form/user-form.component';
 import { CurrencyComponent } from './currency/currency.component';
+import { ExchangeComponent } from './exchange/exchange.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { CurrencyComponent } from './currency/currency.component';
     ShippingComponent,
     WishlistComponent,
     UserFormComponent,
-    CurrencyComponent
+    CurrencyComponent,
+    ExchangeComponent
   ],
   imports: [
     HttpClientModule,
@@ -41,6 +43,7 @@ import { CurrencyComponent } from './currency/currency.component';
       { path: 'wishlist', component: WishlistComponent },
       { path: 'user-forms', component: UserFormComponent },
       { path: 'currency', component: CurrencyComponent },
+      { path: 'exchange', component: ExchangeComponent },
     ]),
     ReactiveFormsModule
   ],
