@@ -37,7 +37,7 @@ import { UserFormComponent } from './user-form/user-form.component';
       { path: 'cart', component: CartComponent },
       { path: 'shipping', component: ShippingComponent },
       { path: 'wishlist', component: WishlistComponent },
-      { path: 'users', component: UserFormComponent },
+      { path: 'user-forms', component: UserFormComponent },
     ]),
     ReactiveFormsModule
   ],
