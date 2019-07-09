@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { data } from './rates';
-import { from } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,7 @@ export class CurrencyService {
   constructor() {
     this.result = this.tansformObjectToArray(data.rates);
 
-    this.Observer = from(this.result);
+    this.Observer = new Observable(this.subscribe());
   }
 
   tansformObjectToArray(object) {
@@ -32,20 +32,22 @@ export class CurrencyService {
     return result;
   }
 
-  subscribe(next, complete) {
-    let i = 0;
-    console.log('It does not execute');
+  subscribe() {
+    return (subscriber) => {
+      let i = 0;
+      console.log('It\' our method');
 
-    for (const item of this.result) {
+      for (const item of this.result) {
+        setTimeout(() => {
+          subscriber.next(item);
+        }, i * 500);
+
+        i++;
+      }
+
       setTimeout(() => {
-        next(item);
+        subscriber.complete();
       }, i * 500);
-
-      i++;
     }
-
-    setTimeout(() => {
-      complete();
-    }, i * 500);
   }
 }
