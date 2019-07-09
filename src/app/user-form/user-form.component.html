@@ -1,0 +1,9 @@
+<form [formGroup]="checkedForm">
+    <div class="form-group">
+        <label for="email">
+            E-mail
+        </label>
+        <input type="text" id="email" formControlName="email">
+    </div>
+    <button type="submit" [disabled]="!checkedForm.valid">Register</button>
+</form>
