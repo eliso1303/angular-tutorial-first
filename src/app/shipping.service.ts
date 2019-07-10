@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ShippingService {
-  private type;
+  private type = "None";
 
   constructor(private http:HttpClient) { }
 
