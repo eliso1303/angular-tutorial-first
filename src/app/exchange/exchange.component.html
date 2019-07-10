@@ -1,17 +1,17 @@
 <h2>Exchange</h2>
 
 <div id="currency1">
-    <select (change)="onChange($event.target.value); change(); changeFromCur2()">
+    <select (change)="onChange($event.target.value); change()">
         <option value="Choose Currency">Choose Currency</option>
         <option [value]="currency" *ngFor="let currency of currencies">{{currency}}</option>
     </select>
-    <input type="number" (keyup)="onKeyUp($event.target.value); change()" [value]="currency1Value">
+    <input type="number" (keyup)="onKeyUp($event.target.value); firstInput(); change()" [value]="currency1Value">
 </div>
 
 <div id="currency2">
-    <select (change)="onChange2($event.target.value); change(); changeFromCur2()">
+    <select (change)="onChange2($event.target.value); change()">
         <option value="Choose Currency">Choose Currency</option>
         <option [value]="currency" *ngFor="let currency of currencies">{{currency}}</option>
     </select>
-    <input type="number" (keyup)="onKeyUp2($event.target.value); changeFromCur2()" [value]="currency2Value">
+    <input type="number" (keyup)="onKeyUp2($event.target.value); secondInput(); change()" [value]="currency2Value">
 </div>
