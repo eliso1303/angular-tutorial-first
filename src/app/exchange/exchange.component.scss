@@ -1,0 +1,19 @@
+#currency1,
+#currency2 {
+  float: left;
+  margin: 20px;
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  select, input {
+    width: 200px;
+    height: 40px;
+    margin: 10px;
+    text-indent: 10px;
+  }
+  input {
+      background: lightblue;
+  }
+}
