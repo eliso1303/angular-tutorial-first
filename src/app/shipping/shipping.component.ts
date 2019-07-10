@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { CartService } from '../cart.service';
+import { ShippingService } from '../shipping.service';
 
 @Component({
+  providers: [ShippingService],
   selector: 'app-shipping',
   templateUrl: './shipping.component.html',
   styleUrls: ['./shipping.component.scss']
@@ -9,7 +10,7 @@ import { CartService } from '../cart.service';
 export class ShippingComponent implements OnInit {
   shippingCosts;
 
-  constructor(private shippingService: CartService) {
+  constructor(private shippingService: ShippingService) {
     this.shippingCosts = shippingService.getShippingCosts();
   }
 

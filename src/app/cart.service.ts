@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 
 @Injectable({
     providedIn: 'root'
@@ -9,7 +8,7 @@ export class CartService {
   static getShippingCosts(): any {
     throw new Error("Method not implemented.");
   }
-    constructor(private http: HttpClient) { }
+    constructor() { }
     items = [];
 
     addToCart(productId) {
@@ -27,9 +26,5 @@ export class CartService {
 
     clearItem(productId) {
         this.items.splice(productId, 1);
-    }
-
-    getShippingCosts() {
-        return this.http.get('/assets/shipping.json');
     }
 }
