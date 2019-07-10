@@ -77,4 +77,8 @@ export class ExchangeComponent implements OnInit {
     let currencyValue = +Object.values(value.rates);
     this.currency2Value = this.currency1Value * currencyValue;
   }
+
+  addCurrency(){
+    
+  }
 }

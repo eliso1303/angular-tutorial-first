@@ -15,3 +15,17 @@
     </select>
     <input type="number" (keyup)="onKeyUp2($event.target.value); secondInput(); change()" [value]="currency2Value">
 </div>
+
+<h2>Sum</h2>
+
+<div class="differentCurrencies">
+    <div id="currency3">
+        <select (change)="onChange($event.target.value);">
+            <option value="Choose Currency">Choose Currency</option>
+            <option [value]="currency" *ngFor="let currency of currencies">{{currency}}</option>
+        </select>
+        <input type="number" (keyup)="onKeyUp3($event.target.value);" [value]="currency3Value">
+    </div>
+</div>
+
+<button (click)="addCurrency()">Add Currency</button>
