@@ -1,15 +1,17 @@
 <h2>Exchange</h2>
 
 <div>
-    <select (change)="onChange($event.target.value)">
+    <select (change)="onChange($event.target.value); change()">
+        <option value="Choose Currency">Choose Currency</option>
         <option [value]="currency" *ngFor="let currency of currencies">{{currency}}</option>
-        <input type="text">
     </select>
+    <input type="text" (keyup)="onKeyUp($event.target.value); change()">
 </div>
 
 <div>
-    <select (change)="onChange($event.target.value)">
-        <option ([value])="currency" *ngFor="let currency of currencies">{{currency}}</option>
+    <select (change)="onChange2($event.target.value); change()">
+        <option value="Choose Currency">Choose Currency</option>
+        <option [value]="currency" *ngFor="let currency of currencies">{{currency}}</option>
     </select>
-    <input type="text">
+    <input type="text" [value]="currency2Value">
 </div>
