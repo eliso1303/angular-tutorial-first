@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CurrencyService } from './../currency.service';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
 
 
 @Component({
@@ -15,15 +16,28 @@ export class ExchangeComponent implements OnInit {
   currency2;
   currency1Value: number;
   currency2Value: number;
+  currency3Value: number;
   Observer;
   checker1;
   checker2;
-  constructor(private currencyService: CurrencyService, private http: HttpClient) {
+  currency3;
+  form: FormGroup;
+  arrayForm: FormGroup;
+  currencySum = 0;
+  oneCurrency;
+
+  constructor(private currencyService: CurrencyService, private http: HttpClient, private formBuilder: FormBuilder) {
     this.currencies = currencyService.getCurrencies();
     this.Observer = new Observable(this.change);
   }
 
   ngOnInit() {
+    this.form = this.formBuilder.group({
+      input: ''
+    });
+    this.arrayForm = this.formBuilder.group({
+      input: this.formBuilder.array([this.inputCreation()])
+    })
   }
 
   onChange(value) {
@@ -78,7 +92,41 @@ export class ExchangeComponent implements OnInit {
     this.currency2Value = this.currency1Value * currencyValue;
   }
 
-  addCurrency(){
-    
+  keyUp3(value) {
+    this.currency3Value = value;
+  }
+
+  onChange3(value) {
+    this.currency3 = value;
+  }
+
+  get inputs() {
+    return (this.arrayForm.get('input') as FormArray).controls;
+  }
+
+  inputCreation() {
+    return this.formBuilder.control('')
+  }
+
+  addCurrency() {
+    const control = this.arrayForm.get('input') as FormArray;
+    control.push(this.inputCreation());
+  }
+
+  sumCurrencies() {
+    if (this.currency3) {
+      const url = ` https://api.exchangeratesapi.io/latest?base=${'USD'}&symbols=${this.currency3}`;
+      this.http.get(url).subscribe(value => {
+        this.updateCurrency3Value(value);
+        console.log(value);
+        this.currencySum += this.oneCurrency;
+        console.log(this.currencySum);
+      });
+    }
+  }
+
+  updateCurrency3Value(value) {
+    let currencyValue = +Object.values(value.rates);
+    this.oneCurrency = this.currency3Value * currencyValue;
   }
 }
