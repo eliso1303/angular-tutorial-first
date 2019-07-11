@@ -21,6 +21,9 @@ import { NewsComponent } from './news/news.component';
 import { ArticleComponent } from './article/article.component';
 import { ErrorComponent } from './error/error.component';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
+import { AdminComponent } from './admin/admin.component';
+import { GuardComponent } from './guard/guard.component';
+import { AdminGuard } from './admin.guard';
 
 @NgModule({
   declarations: [
@@ -39,25 +42,29 @@ import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
     NewsComponent,
     ArticleComponent,
     ErrorComponent,
-    BreadcrumbsComponent
+    BreadcrumbsComponent,
+    AdminComponent,
+    GuardComponent
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot([
-      { path: '', data: {name: "Home"}, component: ProductlistComponent },
-      { path: 'products/:productId', data: {name: "product"}, component: ProductDetailsComponent },
-      { path: 'cart', data: {name: "Cart"}, component: CartComponent },
-      { path: 'shipping', data: {name: "Shipping"}, component: ShippingComponent },
-      { path: 'wishlist', data: {name: "Wishlist"}, component: WishlistComponent },
-      { path: 'user-forms', data: {name: "User-forms"}, component: UserFormComponent },
-      { path: 'currency', data: {name: "Currency"}, component: CurrencyComponent },
-      { path: 'exchange', data: {name: "Exchange"}, component: ExchangeComponent },
-      { path: 'dashboard', data: {name: "Dashboard"}, component: DashboardComponent },
-      { path: 'dashboard/news', data: {name: "News"}, component: NewsComponent },
-      { path: 'dashboard/news/:articleId', data: {name: "Article"}, component: ArticleComponent },
-      { path: 'error', data: {name: "Error"}, component: ErrorComponent },
+      { path: '', data: { name: "Home" }, component: ProductlistComponent },
+      { path: 'products/:productId', data: { name: "product" }, component: ProductDetailsComponent },
+      { path: 'cart', data: { name: "Cart" }, component: CartComponent },
+      { path: 'shipping', data: { name: "Shipping" }, component: ShippingComponent },
+      { path: 'wishlist', data: { name: "Wishlist" }, component: WishlistComponent },
+      { path: 'user-forms', data: { name: "User-forms" }, component: UserFormComponent },
+      { path: 'currency', data: { name: "Currency" }, component: CurrencyComponent },
+      { path: 'exchange', data: { name: "Exchange" }, component: ExchangeComponent },
+      { path: 'dashboard', data: { name: "Dashboard" }, component: DashboardComponent },
+      { path: 'dashboard/news', data: { name: "News" }, component: NewsComponent },
+      { path: 'dashboard/news/:articleId', data: { name: "Article" }, component: ArticleComponent },
+      { path: 'error', data: { name: "Error" }, component: ErrorComponent },
+      { path: 'guard', data: { name: "guard" }, component: GuardComponent },
+      { path: 'admin', data: { name: "admin" }, component: AdminComponent, canActivate: [AdminGuard] },
       { path: '**', redirectTo: 'error' }
     ]),
     ReactiveFormsModule,
