@@ -1,0 +1,51 @@
+<div class="container">
+    <form [formGroup]="register" (ngSubmit)="onSubmit(register)">
+        <label for="name"> Name:
+            <input id="name" type="text" formControlName="name">
+        </label>
+        <label for="email"> Email:
+            <input id="email" type="email" formControlName="email">
+        </label>
+        <label for="password"> Password:
+            <input type="text" formControlName="password">
+        </label>
+        <label for="confPassword"> Confirm Password:
+            <input type="text" formControlName="confPassword">
+        </label>
+
+        <button class="btn btn-primary" type="submit" routerLink="/users"
+            (click)="onSubmit(register.value)" [disabled]="register.status === 'INVALID'">Register</button>
+
+    </form>
+</div>
+
+<p>Form Status: {{register.status}}</p>
+
+<div>
+    <h3>Errors</h3>
+
+    <div *ngIf="register.controls['email'].invalid ">
+        <div *ngIf="register.controls['email'].errors.required">
+            Email is required!
+        </div>
+        <div *ngIf="register.controls['email'].errors.email">
+            Not valid Email!
+        </div>
+    </div>
+
+    <div *ngIf="register.controls['password'].invalid  ">
+        <div *ngIf="register.controls['password'].errors.required">
+            password is required!
+        </div>
+        <div *ngIf="register.controls['password'].errors.MustMatch">
+            Password Don't Match!
+        </div>
+        <div *ngIf="register.controls['password'].errors.minlength">
+            Minimum length is 7!
+        </div>
+
+        <div *ngIf="register.controls['password'].errors.pattern">
+            Not valid Password!
+        </div>
+    </div>
+</div>

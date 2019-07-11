@@ -13,7 +13,7 @@ import { ShippingComponent } from './shipping/shipping.component';
 import { HttpClientModule } from '@angular/common/http';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { UserFormComponent } from './user-form/user-form.component';
+import { signUpComponent } from './user-form/signUp.component';
 import { CurrencyComponent } from './currency/currency.component';
 import { ExchangeComponent } from './exchange/exchange.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -24,6 +24,9 @@ import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { AdminComponent } from './admin/admin.component';
 import { GuardComponent } from './guard/guard.component';
 import { AdminGuard } from './admin.guard';
+import { LoginComponent } from './login/login.component';
+import { UsersComponent } from './users/users.component';
+import { formsComponent } from './forms/forms.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,7 @@ import { AdminGuard } from './admin.guard';
     CartComponent,
     ShippingComponent,
     WishlistComponent,
-    UserFormComponent,
+    signUpComponent,
     CurrencyComponent,
     ExchangeComponent,
     DashboardComponent,
@@ -44,7 +47,10 @@ import { AdminGuard } from './admin.guard';
     ErrorComponent,
     BreadcrumbsComponent,
     AdminComponent,
-    GuardComponent
+    GuardComponent,
+    UsersComponent,
+    formsComponent,
+    LoginComponent
   ],
   imports: [
     HttpClientModule,
@@ -56,7 +62,7 @@ import { AdminGuard } from './admin.guard';
       { path: 'cart', data: { name: "Cart" }, component: CartComponent },
       { path: 'shipping', data: { name: "Shipping" }, component: ShippingComponent },
       { path: 'wishlist', data: { name: "Wishlist" }, component: WishlistComponent },
-      { path: 'user-forms', data: { name: "User-forms" }, component: UserFormComponent },
+      { path: 'user-forms', data: { name: "User-forms" }, component: signUpComponent },
       { path: 'currency', data: { name: "Currency" }, component: CurrencyComponent },
       { path: 'exchange', data: { name: "Exchange" }, component: ExchangeComponent },
       { path: 'dashboard', data: { name: "Dashboard" }, component: DashboardComponent },
@@ -65,6 +71,9 @@ import { AdminGuard } from './admin.guard';
       { path: 'error', data: { name: "Error" }, component: ErrorComponent },
       { path: 'guard', data: { name: "guard" }, component: GuardComponent },
       { path: 'admin', data: { name: "admin" }, component: AdminComponent, canActivate: [AdminGuard] },
+      { path: 'signUp', data: { name: "sign up" }, component: formsComponent },
+      { path: 'users', data: { name: "users" }, component: UsersComponent },
+      { path: 'login', data: { name: "Log In" }, component: LoginComponent },
       { path: '**', redirectTo: 'error' }
     ]),
     ReactiveFormsModule,
