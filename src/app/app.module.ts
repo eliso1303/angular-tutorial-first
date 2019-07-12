@@ -83,6 +83,7 @@ import { EmployeeComponent } from './employee/employee.component';
       { path: 'login', data: { name: "Log In" }, component: LoginComponent },
       { path: 'employees', data: { name: "Employees" }, component: EmployeesComponent },
       { path: 'employee/register', data: { name: "Employee Register" }, component: EmployeeRegisterComponent },
+      { path: 'employees/:id', data: { name: "One Employee" }, component: EmployeeComponent },
       { path: '**', redirectTo: 'error' }
     ]),
     ReactiveFormsModule,
