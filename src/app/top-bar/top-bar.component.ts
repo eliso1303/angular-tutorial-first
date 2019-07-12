@@ -13,11 +13,11 @@ export class TopBarComponent implements OnInit {
 
     ngOnInit() { }
 
-    access() {
-        return this.loginService.isEnabled();
+    get access() {
+        return typeof this.loginService.isEnabled() === 'number' ? this.loginService.isEnabled() : false;
     }
 
-    logoutUser(){
+    logoutUser() {
         this.loginService.logoutUser();
     }
 }

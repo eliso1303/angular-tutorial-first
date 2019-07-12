@@ -1,5 +1,5 @@
 <div class="container">
-    <form [formGroup]="register" (ngSubmit)="onSubmit(register)">
+    <form [formGroup]="register">
         <label for="name"> Name:
             <input id="name" type="text" formControlName="name">
         </label>
@@ -19,7 +19,7 @@
     </form>
 </div>
 
-<!-- <h1>{{register.value | json}}</h1> -->
+<h1>{{register.value | json}}</h1>
 <p>Form Status: {{register.status}}</p>
 
 <div>

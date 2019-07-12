@@ -18,11 +18,6 @@ export class UsersComponent implements OnInit {
   ngOnInit() {
   }
 
-
-  clearUsers() {
-    this.users = [];
-  }
-
   deleteUser(userIndex) {
     if (this.userId === userIndex) {
       this.usersServise.deleteUser(userIndex);
@@ -30,5 +25,4 @@ export class UsersComponent implements OnInit {
       return false;
     }
   }
-
 }
