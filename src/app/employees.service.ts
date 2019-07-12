@@ -20,7 +20,7 @@ export class EmployeesService {
   constructor(private http: HttpClient) { }
 
   getEmployees() {
-    const url =`${this.host}/employees`
+    const url = `${this.host}/employees`
     return this.http
       .get(url)
       .pipe(map((employees: IEmployee[]) => {
@@ -33,5 +33,10 @@ export class EmployeesService {
           }
         })
       }))
+  }
+
+  RegisterEmployees(newEmployee: IEmployee) {
+    const url = `${this.host}/create`
+    return this.http.post<IEmployee>(url, newEmployee);
   }
 }

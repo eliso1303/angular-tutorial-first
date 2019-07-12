@@ -1,0 +1,16 @@
+<form [formGroup]="employeeRegister">
+    <label for="name"> Name:
+        <input id="name" type="text" formControlName="name">
+    </label>
+    <label for="salary"> Salery:
+        <input id="salary" type="text" formControlName="salary">
+    </label>
+    <label for="age"> Age:
+        <input type="text" formControlName="age">
+    </label>
+
+    <button class="btn btn-primary" type="submit" [disabled]="employeeRegister.status === 'INVALID'" (click)="RegisterEmployees(employeeRegister.value)">Register Employee
+    </button>
+
+    {{employeeRegister.value | json}}
+</form>
