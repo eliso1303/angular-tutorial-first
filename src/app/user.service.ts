@@ -14,10 +14,15 @@ export class UsersService {
     usersList = [];
 
     addToUsers(user) {
+        // console.log(user);
         this.usersList.push(user);
     }
 
     getUsers() {
         return this.usersList;
+    }
+
+    deleteUser(userIndex){
+        this.usersList.splice(userIndex, 1);
     }
 }

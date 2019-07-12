@@ -27,6 +27,7 @@ import { AdminGuard } from './admin.guard';
 import { LoginComponent } from './login/login.component';
 import { UsersComponent } from './users/users.component';
 import { formsComponent } from './forms/forms.component';
+import { LoginGuard } from './login.guard';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,7 @@ import { formsComponent } from './forms/forms.component';
       { path: 'guard', data: { name: "guard" }, component: GuardComponent },
       { path: 'admin', data: { name: "admin" }, component: AdminComponent, canActivate: [AdminGuard] },
       { path: 'signUp', data: { name: "sign up" }, component: formsComponent },
-      { path: 'users', data: { name: "users" }, component: UsersComponent },
+      { path: 'users', data: { name: "users" }, component: UsersComponent, canActivate: [LoginGuard] },
       { path: 'login', data: { name: "Log In" }, component: LoginComponent },
       { path: '**', redirectTo: 'error' }
     ]),

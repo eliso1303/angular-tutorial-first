@@ -7,18 +7,19 @@
             <input id="email" type="email" formControlName="email">
         </label>
         <label for="password"> Password:
-            <input type="text" formControlName="password">
+            <input type="password" formControlName="password">
         </label>
         <label for="confPassword"> Confirm Password:
-            <input type="text" formControlName="confPassword">
+            <input type="password" formControlName="confPassword">
         </label>
 
-        <button class="btn btn-primary" type="submit" routerLink="/users"
-            (click)="onSubmit(register.value)" [disabled]="register.status === 'INVALID'">Register</button>
-
+        <button class="btn btn-primary" type="submit" (click)="onSubmit(register.value)"
+            [disabled]="register.status === 'INVALID'">Register
+        </button>
     </form>
 </div>
 
+<!-- <h1>{{register.value | json}}</h1> -->
 <p>Form Status: {{register.status}}</p>
 
 <div>

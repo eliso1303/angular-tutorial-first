@@ -1,6 +1,13 @@
-<label for="email"> Email:
-    <input id="email" type="email" >
-</label>
-<label for="password"> Password:
-    <input type="text" >
-</label>
+<form [formGroup]="loginForm">
+    <label for="email"> Email:
+        <input id="email" type="email" formControlName="email">
+    </label>
+
+    <label for="password"> Password:
+        <input type="password" formControlName="password">
+    </label>
+
+    <button class="button" type="submit" routerLink="/users" (click)="checkUser()">Login</button>
+</form>
+
+<a routerLing="/users">user link</a>

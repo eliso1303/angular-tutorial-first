@@ -32,14 +32,18 @@
     Guard
 </a>
 
-<a [routerLink]="['/users']" class="button fancy-button">
+<a *ngIf="access()" [routerLink]="['/users']" class="button fancy-button">
     users
 </a>
 
-<a [routerLink]="['/signUp']" class="button fancy-button">
+<a  *ngIf="!access()" [routerLink]="['/signUp']" class="button fancy-button">
     Sign Up
 </a>
 
-<a [routerLink]="['/login']" class="button fancy-button">
+<a *ngIf="!access()" [routerLink]="['/login']" class="button fancy-button">
     Login
+</a>
+
+<a *ngIf="access()" [routerLink]="['/login']" (click)="logoutUser()" class="button fancy-button">
+    Log Out
 </a>
