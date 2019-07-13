@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EmployeesService } from '../employees.service';
+import { EmployeesService, IEmployee } from '../employees.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, Validators, FormControl } from '@angular/forms';
 
@@ -53,10 +53,10 @@ export class EmployeeComponent implements OnInit {
       age: this.employeeForm.get('age').value
     }
     this.employeesService.updateEmployee(this.employee.id, this.updetedEmployee)
-      .subscribe((newEmployee: any) => {
-        this.employee.age = newEmployee.age;
-        this.employee.name = newEmployee.name;
-        this.employee.salary = newEmployee.salary;
+      .subscribe((newEmployee: IEmployee) => {
+        this.employee.name = newEmployee.employee_name;
+        this.employee.age = newEmployee.employee_age;
+        this.employee.salary = newEmployee.employee_salary;
         this.router.navigate(['/employees']);
       });
   }

@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 import { map } from 'rxjs/operators';
 
-interface IEmployee {
+export interface IEmployee {
   id: string;
   employee_name: string;
   employee_salary: string;
