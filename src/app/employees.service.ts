@@ -53,4 +53,9 @@ export class EmployeesService {
       
       }))
   }
+
+  updateEmployee(id, employee) {
+    const url = `${this.host}/update/${id}`;
+    return this.http.put(url, employee);
+  }
 }
