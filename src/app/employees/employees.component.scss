@@ -1,0 +1,29 @@
+.employeeTable {
+  background: #fcffda;
+
+  thead {
+    background: #f4ff77;
+
+    th {
+      padding: 10px;
+    }
+  }
+
+  tbody {
+    td {
+      padding: 10px;
+    }
+  }
+}
+
+#paginationLinks {
+  margin: 20px 0px 50px;
+
+  a {
+    display: inline-block;
+    padding: 5px 10px;
+    background: lightblue;
+    border: 1px solid #78cdd6;
+    color: #45444a;
+  }
+}
