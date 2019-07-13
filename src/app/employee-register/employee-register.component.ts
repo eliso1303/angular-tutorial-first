@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeesService } from '../employees.service';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-employee-register',
@@ -12,7 +13,7 @@ export class EmployeeRegisterComponent implements OnInit {
   employees$;
   employeeRegister;
 
-  constructor(private employeesService: EmployeesService, private formBuilder: FormBuilder) {
+  constructor(private employeesService: EmployeesService, private formBuilder: FormBuilder, private router:Router) {
     this.employeeRegister = formBuilder.group({
       name: ['', [Validators.required]],
       salary: [,[Validators.required, Validators.pattern(/^[0-9]+$/)]],
@@ -25,7 +26,7 @@ export class EmployeeRegisterComponent implements OnInit {
   }
 
   RegisterEmployees(newEmployee){
-    this.employeesService.RegisterEmployees(newEmployee).subscribe();
+    this.employeesService.RegisterEmployees(newEmployee).subscribe(emp => { this.router.navigate(['/employees']) });;
   }
 
 }

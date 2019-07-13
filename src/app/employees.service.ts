@@ -58,4 +58,9 @@ export class EmployeesService {
     const url = `${this.host}/update/${id}`;
     return this.http.put(url, employee);
   }
+
+  deleteEmployee(id) {
+    const url = `${this.host}/delete/${id}`;
+    return this.http.delete(url);
+  }
 }
