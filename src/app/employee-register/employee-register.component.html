@@ -11,6 +11,4 @@
 
     <button class="btn btn-primary" type="submit" [disabled]="employeeRegister.status === 'INVALID'" (click)="RegisterEmployees(employeeRegister.value)">Register Employee
     </button>
-
-    {{employeeRegister.value | json}}
 </form>

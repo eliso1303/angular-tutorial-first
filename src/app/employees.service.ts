@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 import { map } from 'rxjs/operators';
 
-interface IEmployee {
+export interface IEmployee {
   id: string;
   employee_name: string;
   employee_salary: string;
@@ -51,5 +51,15 @@ export class EmployeesService {
               age: employee.employee_age
             }
       }))
+  }
+
+  updateEmployee(id, employee) {
+    const url = `${this.host}/update/${id}`;
+    return this.http.put(url, employee);
+  }
+
+  deleteEmployee(id) {
+    const url = `${this.host}/delete/${id}`;
+    return this.http.delete(url);
   }
 }
