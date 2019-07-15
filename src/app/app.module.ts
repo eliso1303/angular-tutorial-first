@@ -31,6 +31,8 @@ import { LoginGuard } from './login.guard';
 import { EmployeesComponent } from './employees/employees.component';
 import { EmployeeRegisterComponent } from './employee-register/employee-register.component';
 import { EmployeeComponent } from './employee/employee.component';
+import { MenuComponent } from './menu/menu.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -58,11 +60,13 @@ import { EmployeeComponent } from './employee/employee.component';
     EmployeesComponent,
     EmployeeRegisterComponent,
     EmployeeComponent,
+    MenuComponent,
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     RouterModule.forRoot([
       { path: '', data: { name: "Home" }, component: ProductlistComponent },
       { path: 'products/:productId', data: { name: "product" }, component: ProductDetailsComponent },
