@@ -50,7 +50,6 @@ export class EmployeesService {
               salary: employee.employee_salary,
               age: employee.employee_age
             }
-      
       }))
   }
 }
