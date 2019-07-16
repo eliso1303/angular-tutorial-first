@@ -15,9 +15,6 @@ import { state, style, trigger, transition, animate } from '@angular/animations'
       state('unload', style({
         display: 'block'
       })),
-      // transition('load => unload', [
-      //   animate('0.2s')
-      // ])
     ])
   ]
 })

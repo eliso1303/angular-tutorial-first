@@ -23,3 +23,28 @@
     background: lightblue;
   }
 }
+
+.modal {
+  position: absolute;
+  height: 200px;
+  width: 400px;
+  background-color: lightblue;
+  padding: 20px;
+  left: 0;
+  margin: auto;
+  right: 0;
+  top: 0;
+
+  h3 {
+    color: #313131;
+    font-size: 22px;
+    margin-bottom: 60px;
+  }
+  button {
+    width: 47%;
+    height: 50px;
+    text-align: center;
+    margin-left: 10px;
+    font-size: 18px;
+  }
+}

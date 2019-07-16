@@ -2,11 +2,25 @@ import { Component, OnInit } from '@angular/core';
 import { EmployeesService, IEmployee } from '../employees.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, Validators, FormControl } from '@angular/forms';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-employee',
   templateUrl: './employee.component.html',
-  styleUrls: ['./employee.component.scss']
+  styleUrls: ['./employee.component.scss'],
+  animations: [
+    trigger('openClose', [
+      state('open', style({
+        top: 0
+      })),
+      state('close', style({
+        top: '-200px'
+      })),
+      transition('open <=> close', [
+        animate('0.5s')
+      ])
+    ])
+  ]
 })
 export class EmployeeComponent implements OnInit {
 
@@ -19,6 +33,7 @@ export class EmployeeComponent implements OnInit {
   };
   employeeForm;
   updetedEmployee;
+  showmodal = false;
 
   constructor(private employeesService: EmployeesService,
     private activatedRoute: ActivatedRoute,
@@ -34,6 +49,7 @@ export class EmployeeComponent implements OnInit {
       const employeeId = +value.get('id');
       this.employeesService.getEmployeeById(employeeId).subscribe(employee => {
         this.employee = employee;
+        this.showmodal = false;
         if (!this.employee) {
           router.navigate(['error']);
         }
@@ -63,5 +79,13 @@ export class EmployeeComponent implements OnInit {
 
   deleteEmployee() {
     this.employeesService.deleteEmployee(this.employee.id).subscribe(emp => { this.router.navigate(['/employees']) });
+  }
+
+  showModal() {
+    this.showmodal = true;
+  }
+
+  hideModal() {
+    this.showmodal = false;
   }
 }

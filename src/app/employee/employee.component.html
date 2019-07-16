@@ -31,8 +31,13 @@
         <input type="text" formControlName="age">
     </label>
 
+    <button class="btn btn-primary" (click)="showModal()">Delete</button>
     <button class="btn btn-primary" type="submit" [disabled]="employeeForm.status === 'INVALID'"
         (click)="updateEmployee()">Update Employee
     </button>
-    <button class="btn btn-primary" (click)="deleteEmployee()">Delete Employee</button>
+    <div class="modal" [@openClose]="showmodal ? 'open': 'close'">
+        <h3>Are you sure to remove employee?</h3>
+        <button class="btn btn-primary" (click)="deleteEmployee()">Delete</button>
+        <button (click)="hideModal()">Cancel</button>
+    </div>
 </form>
