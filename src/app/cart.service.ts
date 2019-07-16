@@ -5,9 +5,6 @@ import { Injectable } from '@angular/core';
 })
 
 export class CartService {
-  static getShippingCosts(): any {
-    throw new Error("Method not implemented.");
-  }
     constructor() { }
     items = [];
 
