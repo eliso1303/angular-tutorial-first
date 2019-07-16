@@ -4,6 +4,9 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class LoginService {
+    getValue(access: any): any {
+        throw new Error("Method not implemented.");
+    }
 
   userId;
 
