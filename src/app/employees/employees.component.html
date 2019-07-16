@@ -19,7 +19,12 @@
     </tbody>
 </table>
 
-<div id="paginationLinks" >
-    <a *ngFor="let onePage of pages" [routerLink]="['/employees']"
-        [queryParams]="{ page: onePage}">{{onePage}}</a>
+<div id="paginationLinks">
+    <a *ngFor="let onePage of pages" [routerLink]="['/employees']" [queryParams]="{ page: onePage}">{{onePage}}</a>
+</div>
+
+<div class="container" [@loader]="isLoaded ? 'load' : 'unload'">
+    <div id="loader" class="lds-circle">
+        <div></div>
+    </div>
 </div>
