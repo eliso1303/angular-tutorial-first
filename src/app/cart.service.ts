@@ -21,7 +21,7 @@ export class CartService {
         return this.items;
     }
 
-    clearItem(productId) {
-        this.items.splice(productId, 1);
+    clearItem(product) {
+        this.items.splice(this.items.indexOf(product), 1);
     }
 }
